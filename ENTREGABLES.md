@@ -151,8 +151,11 @@ Las pruebas se hacen con Swagger, Postman o con el script incluido:
 powershell -ExecutionPolicy Bypass -File .\VetHuellitas\pruebas\probar-api.ps1 -BaseUrl "https://URL_DE_LA_API"
 ```
 
-El script ejecuta 27 comprobaciones y cubre los seis códigos exigidos. La tabla sirve como
-lista de capturas; cada fila debe tener su imagen en `docs/capturas/`.
+El script ejecuta 27 comprobaciones y cubre los seis códigos exigidos. La misma corrida se
+hizo contra la versión publicada en local (entorno Production, puerto 5184) y terminó con
+27 de 27 correctas. Esa validación no reemplaza la prueba sobre la API en la nube, que es
+la que se exige. La tabla sirve como lista de capturas; cada fila debe tener su imagen en
+`docs/capturas/`.
 
 | Código | Petición | Caso | Captura |
 |---|---|---|---|
