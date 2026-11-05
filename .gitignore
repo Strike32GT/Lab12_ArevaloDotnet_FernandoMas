@@ -1,0 +1,21 @@
+# Compilacion
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+publish/
+*.user
+*.suo
+.vs/
+
+# Secretos y configuracion local (la cadena de conexion NO se versiona)
+appsettings.Production.json
+appsettings.*.local.json
+.env
+*.env.local
+secrets.json
+
+# Herramientas
+.vscode/
+.idea/
+*.log

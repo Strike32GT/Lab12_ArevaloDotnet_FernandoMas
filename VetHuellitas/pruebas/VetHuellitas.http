@@ -1,0 +1,189 @@
+@host = http://localhost:5183
+@duenioId = 1
+@mascotaId = 1
+
+### 200 - Listado de duenios con filtros por query string
+GET {{host}}/api/duenios?ciudad=Lima&activo=true&incluirMascotas=true
+
+### 200 - Duenio por id con sus mascotas
+GET {{host}}/api/duenios/{{duenioId}}
+
+### 200 - Ruta anidada: mascotas del duenio
+GET {{host}}/api/duenios/{{duenioId}}/mascotas?especie=Gato
+
+### 200 - Resumen con agregados
+GET {{host}}/api/duenios/{{duenioId}}/resumen
+
+### 404 - Duenio inexistente
+GET {{host}}/api/duenios/999999
+
+### 201 - Crear duenio
+POST {{host}}/api/duenios
+Content-Type: application/json
+
+{
+  "nombre": "Rosa",
+  "apellido": "Paredes",
+  "email": "rosa.paredes@correo.com",
+  "telefono": "988777666",
+  "ciudad": "Lima",
+  "activo": true
+}
+
+### 400 - Datos invalidos (Data Annotations)
+POST {{host}}/api/duenios
+Content-Type: application/json
+
+{
+  "nombre": "R",
+  "apellido": "",
+  "email": "sin-arroba",
+  "telefono": "abc",
+  "ciudad": ""
+}
+
+### 409 - Correo repetido
+POST {{host}}/api/duenios
+Content-Type: application/json
+
+{
+  "nombre": "Ana",
+  "apellido": "Torres",
+  "email": "ana.torres@correo.com",
+  "telefono": "987654321",
+  "ciudad": "Lima",
+  "activo": true
+}
+
+### 400 - El id de la ruta no coincide con el cuerpo
+PUT {{host}}/api/duenios/{{duenioId}}
+Content-Type: application/json
+
+{
+  "duenioId": 99,
+  "nombre": "Ana",
+  "apellido": "Torres",
+  "email": "ana.torres@correo.com",
+  "telefono": "987654321",
+  "ciudad": "Lima",
+  "activo": true
+}
+
+### 204 - Actualizar duenio
+PUT {{host}}/api/duenios/{{duenioId}}
+Content-Type: application/json
+
+{
+  "duenioId": {{duenioId}},
+  "nombre": "Ana",
+  "apellido": "Torres Diaz",
+  "email": "ana.torres@correo.com",
+  "telefono": "987654321",
+  "ciudad": "Lima",
+  "activo": true
+}
+
+### 409 - No se puede eliminar un duenio con mascotas
+DELETE {{host}}/api/duenios/{{duenioId}}
+
+### 200 - Listado de mascotas con filtros
+GET {{host}}/api/mascotas?especie=Perro&pesoMin=10&pesoMax=40
+
+### 200 - Mascota por id
+GET {{host}}/api/mascotas/{{mascotaId}}
+
+### 200 - Estadisticas por especie
+GET {{host}}/api/mascotas/estadisticas
+
+### 404 - Mascota inexistente
+GET {{host}}/api/mascotas/999999
+
+### 201 - Crear mascota enviando solo la clave foranea
+POST {{host}}/api/mascotas
+Content-Type: application/json
+
+{
+  "duenioId": {{duenioId}},
+  "nombre": "Canela",
+  "especie": "Perro",
+  "raza": "Mestiza",
+  "fechaNacimiento": "2024-02-10",
+  "peso": 7.8,
+  "activa": true
+}
+
+### 400 - Clave foranea inexistente
+POST {{host}}/api/mascotas
+Content-Type: application/json
+
+{
+  "duenioId": 999999,
+  "nombre": "Fantasma",
+  "especie": "Perro",
+  "peso": 5.0
+}
+
+### 400 - Fecha de nacimiento futura (IValidatableObject)
+POST {{host}}/api/mascotas
+Content-Type: application/json
+
+{
+  "duenioId": {{duenioId}},
+  "nombre": "Viajera",
+  "especie": "Gato",
+  "fechaNacimiento": "2030-01-01",
+  "peso": 4.2
+}
+
+### 409 - Nombre repetido para el mismo duenio
+POST {{host}}/api/mascotas
+Content-Type: application/json
+
+{
+  "duenioId": {{duenioId}},
+  "nombre": "Luna",
+  "especie": "Gato",
+  "peso": 4.2
+}
+
+### 400 - El id de la ruta no coincide con el cuerpo
+PUT {{host}}/api/mascotas/{{mascotaId}}
+Content-Type: application/json
+
+{
+  "mascotaId": 99,
+  "duenioId": {{duenioId}},
+  "nombre": "Luna",
+  "especie": "Perro",
+  "peso": 28.5
+}
+
+### 204 - Actualizar mascota
+PUT {{host}}/api/mascotas/{{mascotaId}}
+Content-Type: application/json
+
+{
+  "mascotaId": {{mascotaId}},
+  "duenioId": {{duenioId}},
+  "nombre": "Luna",
+  "especie": "Perro",
+  "raza": "Labrador",
+  "fechaNacimiento": "2022-05-10",
+  "peso": 29.0,
+  "activa": true
+}
+
+### 204 - Eliminar mascota
+DELETE {{host}}/api/mascotas/{{mascotaId}}
+
+### 404 - Mascota ya eliminada
+DELETE {{host}}/api/mascotas/{{mascotaId}}
+
+### 200 - Swagger UI publicado
+GET {{host}}/swagger/index.html
+
+### 200 - Documento OpenAPI
+GET {{host}}/openapi/v1.json
+
+### 200 - Diagnostico de conexion a la base de datos
+GET {{host}}/health
