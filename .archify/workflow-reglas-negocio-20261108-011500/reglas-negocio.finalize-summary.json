@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "workflow",
+  "quality": "showcase",
+  "specification": {
+    "path": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\workflow-reglas-negocio-20261108-011500\\candidate.json",
+    "sha256": "ce7913089c9fd874bc64b758b4b20f069beea08396e5c139787b4f35694d353b",
+    "bytes": 6118
+  },
+  "artifact": {
+    "path": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\workflow-reglas-negocio-20261108-011500\\reglas-negocio.html",
+    "sha256": "c60823a4ee4c92cba8abc562e5adea0d367897f818883e0411cc9dd779084dab",
+    "bytes": 865739
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\workflow-reglas-negocio-20261108-011500\\reglas-negocio.finalize.json",
+    "summaryReceipt": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\workflow-reglas-negocio-20261108-011500\\reglas-negocio.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\workflow-reglas-negocio-20261108-011500\\reglas-negocio.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-11-08T05:42:59.852Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 4785,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  }
+}

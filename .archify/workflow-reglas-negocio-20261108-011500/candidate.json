@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Reglas de negocio de VetHuellitas",
+    "subtitle": "Validaciones y respuestas al registrar dueños, mascotas y eliminar dueños",
+    "locale": "es",
+    "output": ".archify/workflow-reglas-negocio-20261108-011500/reglas-negocio.html",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    { "id": "duenio", "label": "Registro de dueño" },
+    { "id": "mascota", "label": "Registro de mascota" },
+    { "id": "errores_mascota", "label": "Errores de mascota", "variant": "exception" },
+    { "id": "eliminar", "label": "Eliminación de dueño", "variant": "exception" }
+  ],
+  "phases": [
+    { "id": "solicitud", "label": "Solicitud", "fromCol": 0, "toCol": 0 },
+    { "id": "validacion", "label": "Validación", "fromCol": 1, "toCol": 2, "variant": "emphasis" },
+    { "id": "resultado", "label": "Respuesta", "fromCol": 3, "toCol": 5, "variant": "dashed" }
+  ],
+  "nodes": [
+    { "id": "crear_duenio", "lane": "duenio", "col": 0, "type": "external", "label": "POST dueño", "sublabel": "datos recibidos", "width": 126 },
+    { "id": "validar_duenio", "lane": "duenio", "col": 1, "type": "backend", "label": "Validar campos", "sublabel": "correo, teléfono y ciudad", "width": 138 },
+    { "id": "correo_unico", "lane": "duenio", "col": 2, "type": "database", "label": "¿Correo único?", "sublabel": "regla de dueño", "width": 126 },
+    { "id": "duenio_201", "lane": "duenio", "col": 3, "type": "backend", "label": "201 Created", "sublabel": "dueño registrado", "width": 126 },
+    { "id": "duenio_400", "lane": "duenio", "col": 4, "type": "security", "label": "400 Bad Request", "sublabel": "datos inválidos", "width": 136 },
+    { "id": "duenio_409", "lane": "duenio", "col": 5, "type": "security", "label": "409 Conflict", "sublabel": "correo repetido", "width": 132 },
+
+    { "id": "crear_mascota", "lane": "mascota", "col": 0, "type": "external", "label": "POST mascota", "sublabel": "datos recibidos", "width": 126 },
+    { "id": "validar_mascota", "lane": "mascota", "col": 1, "type": "backend", "label": "Validar datos", "sublabel": "peso y fecha", "width": 126 },
+    { "id": "duenio_existe", "lane": "mascota", "col": 2, "type": "database", "label": "¿Dueño existe?", "sublabel": "DuenioId", "width": 126 },
+    { "id": "nombre_unico", "lane": "mascota", "col": 3, "type": "database", "label": "¿Nombre disponible?", "sublabel": "por dueño", "width": 140 },
+    { "id": "mascota_201", "lane": "mascota", "col": 4, "type": "backend", "label": "201 Created", "sublabel": "mascota registrada", "width": 132 },
+    { "id": "mascota_400_datos", "lane": "errores_mascota", "col": 1, "type": "security", "label": "400 Bad Request", "sublabel": "datos inválidos", "width": 132 },
+    { "id": "mascota_400_duenio", "lane": "errores_mascota", "col": 2, "type": "security", "label": "400 Bad Request", "sublabel": "dueño inexistente", "width": 132 },
+    { "id": "mascota_409", "lane": "errores_mascota", "col": 3, "type": "security", "label": "409 Conflict", "sublabel": "nombre repetido", "width": 132 },
+
+    { "id": "borrar_duenio", "lane": "eliminar", "col": 0, "type": "external", "label": "DELETE dueño", "sublabel": "id recibido", "width": 126 },
+    { "id": "buscar_duenio", "lane": "eliminar", "col": 1, "type": "database", "label": "¿Dueño existe?", "sublabel": "buscar por id", "width": 126 },
+    { "id": "tiene_mascotas", "lane": "eliminar", "col": 2, "type": "database", "label": "¿Tiene mascotas?", "sublabel": "relación activa", "width": 132 },
+    { "id": "duenio_204", "lane": "eliminar", "col": 3, "type": "backend", "label": "204 No Content", "sublabel": "dueño eliminado", "width": 132 },
+    { "id": "duenio_404", "lane": "eliminar", "col": 4, "type": "security", "label": "404 Not Found", "sublabel": "dueño inexistente", "width": 132 },
+    { "id": "duenio_bloqueado", "lane": "eliminar", "col": 5, "type": "security", "label": "409 Conflict", "sublabel": "tiene mascotas", "width": 132 }
+  ],
+  "edges": [
+    { "from": "crear_duenio", "to": "validar_duenio", "role": "main" },
+    { "from": "validar_duenio", "to": "correo_unico", "label": "válido", "role": "main" },
+    { "from": "validar_duenio", "to": "duenio_400", "label": "inválido", "variant": "security", "role": "error" },
+    { "from": "correo_unico", "to": "duenio_201", "label": "sí", "role": "main" },
+    { "from": "correo_unico", "to": "duenio_409", "label": "no", "variant": "security", "role": "error" },
+    { "from": "crear_mascota", "to": "validar_mascota", "role": "main" },
+    { "from": "validar_mascota", "to": "duenio_existe", "label": "válido", "role": "main" },
+    { "from": "validar_mascota", "to": "mascota_400_datos", "label": "inválido", "variant": "security", "role": "error" },
+    { "from": "duenio_existe", "to": "nombre_unico", "label": "sí", "role": "main" },
+    { "from": "duenio_existe", "to": "mascota_400_duenio", "label": "no", "variant": "security", "role": "error", "route": "drop" },
+    { "from": "nombre_unico", "to": "mascota_201", "label": "sí", "role": "main" },
+    { "from": "nombre_unico", "to": "mascota_409", "label": "no", "variant": "security", "role": "error", "route": "drop" },
+    { "from": "borrar_duenio", "to": "buscar_duenio", "role": "main" },
+    { "from": "buscar_duenio", "to": "tiene_mascotas", "label": "sí", "role": "main" },
+    { "from": "buscar_duenio", "to": "duenio_404", "label": "no", "variant": "security", "role": "error" },
+    { "from": "tiene_mascotas", "to": "duenio_204", "label": "no", "role": "main" },
+    { "from": "tiene_mascotas", "to": "duenio_bloqueado", "label": "sí", "variant": "security", "role": "error" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Reglas principales", "items": ["El correo de un dueño no puede repetirse.", "Una mascota necesita un dueño existente.", "El nombre de mascota no se repite para el mismo dueño."] },
+    { "dot": "amber", "title": "Eliminación", "items": ["No se elimina un dueño que tenga mascotas registradas.", "Primero se elimina o reasigna la mascota y luego el dueño."] }
+  ]
+}

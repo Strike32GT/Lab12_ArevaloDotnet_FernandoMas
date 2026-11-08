@@ -1,21 +1,45 @@
-# Compilacion
-bin/
-obj/
+# Compilación y publicación de .NET
+[Bb]in/
+[Oo]bj/
 [Dd]ebug/
 [Rr]elease/
-publish/
-*.user
-*.suo
+[Pp]ublish/
+artifacts/
+TestResults/
+*.nupkg
+*.snupkg
+
+# Configuración de IDE y usuario
 .vs/
-
-# Secretos y configuracion local (la cadena de conexion NO se versiona)
-appsettings.Production.json
-appsettings.*.local.json
-.env
-*.env.local
-secrets.json
-
-# Herramientas
 .vscode/
 .idea/
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Secretos y configuración local: las plantillas públicas se conservan
+**/appsettings.Local.json
+**/appsettings.*.local.json
+**/appsettings.Production.json
+**/appsettings.*.Production.json
+**/secrets.json
+.env
+.env.*
+!.env.example
+*.pem
+*.pfx
+*.key
+
+# Archivos temporales, registros y sistema operativo
 *.log
+*.tmp
+*.cache
+*.bak
+*.swp
+*.swo
+Thumbs.db
+Desktop.ini
+
+# No ignorar evidencias del laboratorio: docs/capturas/*.png queda versionable.

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\architecture-despliegue-20261108-010000\\candidate.json",
+    "sha256": "f0ba88fb14fd88fdb1a3dbb5bdb5974744da741e8e5b5d47c83434096364caeb",
+    "bytes": 2522
+  },
+  "artifact": {
+    "path": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\architecture-despliegue-20261108-010000\\arquitectura-despliegue.html",
+    "sha256": "fafc59403ebb77cfc17bd8bc1f586b166b694e6f3a25f45fb16577f35ff9bbe4",
+    "bytes": 839335
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\architecture-despliegue-20261108-010000\\arquitectura-despliegue.finalize.json",
+    "summaryReceipt": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\architecture-despliegue-20261108-010000\\arquitectura-despliegue.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\architecture-despliegue-20261108-010000\\arquitectura-despliegue.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-11-08T05:42:59.852Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 5329,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  }
+}

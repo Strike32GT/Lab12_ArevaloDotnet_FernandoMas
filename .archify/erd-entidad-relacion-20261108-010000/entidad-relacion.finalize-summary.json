@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "erd",
+  "quality": "showcase",
+  "specification": {
+    "path": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\erd-entidad-relacion-20261108-010000\\candidate.json",
+    "sha256": "d38ec51a7565d5c49c7e379c46e0f71c6c66ffec71c49f941571c21e1c0dde32",
+    "bytes": 2007
+  },
+  "artifact": {
+    "path": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\erd-entidad-relacion-20261108-010000\\entidad-relacion.html",
+    "sha256": "aeb60ea2dda9825ecca75c8b1517a4d68f6534f4c5513d47fcde9de898b03d4d",
+    "bytes": 843180
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\erd-entidad-relacion-20261108-010000\\entidad-relacion.finalize.json",
+    "summaryReceipt": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\erd-entidad-relacion-20261108-010000\\entidad-relacion.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\erd-entidad-relacion-20261108-010000\\entidad-relacion.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-11-08T05:42:59.852Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 6114,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  }
+}

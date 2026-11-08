@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "659fe75a-e079-424a-94fb-144e0a7683a9",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\workflow-reglas-negocio-20261108-011500\\candidate.json",
+  "output": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\workflow-reglas-negocio-20261108-011500\\reglas-negocio.html",
+  "specification": {
+    "sha256": "ce7913089c9fd874bc64b758b4b20f069beea08396e5c139787b4f35694d353b",
+    "bytes": 6118
+  },
+  "artifact": {
+    "sha256": "c60823a4ee4c92cba8abc562e5adea0d367897f818883e0411cc9dd779084dab",
+    "bytes": 865739
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "diagram_type": "erd",
+  "meta": {
+    "title": "Entidad–relación de VetHuellitas",
+    "locale": "es",
+    "output": ".archify/erd-entidad-relacion-20261108-010000/entidad-relacion.html",
+    "quality_profile": "showcase"
+  },
+  "layout": { "mode": "grid", "gapX": 86, "gapY": 40 },
+  "entities": [
+    {
+      "id": "duenios", "label": "Duenios", "tag": "Clínica veterinaria", "row": 0, "col": 0,
+      "attributes": [
+        { "name": "DuenioId", "type": "INT IDENTITY", "key": "pk" }, { "name": "Nombre", "type": "NVARCHAR(80)" }, { "name": "Apellido", "type": "NVARCHAR(80)" }, { "name": "Email", "type": "NVARCHAR(120)", "key": "uk" }, { "name": "Telefono", "type": "NVARCHAR(20)" }, { "name": "Ciudad", "type": "NVARCHAR(60)" }, { "name": "FechaRegistro", "type": "DATETIME2(0)" }, { "name": "Activo", "type": "BIT" }
+      ]
+    },
+    {
+      "id": "mascotas", "label": "Mascotas", "tag": "Clínica veterinaria", "row": 0, "col": 1,
+      "attributes": [
+        { "name": "MascotaId", "type": "INT IDENTITY", "key": "pk" }, { "name": "DuenioId", "type": "INT", "key": "fk", "references": "duenios.DuenioId" }, { "name": "Nombre", "type": "NVARCHAR(60)" }, { "name": "Especie", "type": "NVARCHAR(40)" }, { "name": "Raza", "type": "NVARCHAR(60) NULL" }, { "name": "FechaNacimiento", "type": "DATE NULL" }, { "name": "Peso", "type": "DECIMAL(5,2)" }, { "name": "Activa", "type": "BIT" }
+      ]
+    }
+  ],
+  "relationships": [{ "id": "duenio_mascotas", "from": "duenios", "to": "mascotas", "label": "registra", "fromCardinality": "one", "toCardinality": "many" }],
+  "cards": [
+    { "dot": "cyan", "title": "Relación", "items": ["Un dueño puede tener varias mascotas.", "Cada mascota pertenece a un único dueño mediante DuenioId."] },
+    { "dot": "amber", "title": "Reglas de base de datos", "items": ["Email es único para cada dueño.", "DuenioId y Nombre son únicos en conjunto para cada mascota.", "El peso debe ser mayor a 0 y no superar 200 kg."] }
+  ]
+}

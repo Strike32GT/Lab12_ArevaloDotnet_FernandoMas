@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "4dc6e5a2-f384-4032-981c-f512bde83a83",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\architecture-despliegue-20261108-010000\\candidate.json",
+  "output": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\architecture-despliegue-20261108-010000\\arquitectura-despliegue.html",
+  "specification": {
+    "sha256": "f0ba88fb14fd88fdb1a3dbb5bdb5974744da741e8e5b5d47c83434096364caeb",
+    "bytes": 2522
+  },
+  "artifact": {
+    "sha256": "fafc59403ebb77cfc17bd8bc1f586b166b694e6f3a25f45fb16577f35ff9bbe4",
+    "bytes": 839335
+  }
+}

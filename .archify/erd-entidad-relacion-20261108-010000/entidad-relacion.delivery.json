@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "76a26825-ad4e-492f-8db2-d9e44d35e49a",
+  "status": "current",
+  "command": "deliver",
+  "type": "erd",
+  "input": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\erd-entidad-relacion-20261108-010000\\candidate.json",
+  "output": "C:\\Users\\Fernando\\Desktop\\TECSUP2026\\Ciclo6\\Csharp_DotNet_Arevalo\\Lab12\\.archify\\erd-entidad-relacion-20261108-010000\\entidad-relacion.html",
+  "specification": {
+    "sha256": "d38ec51a7565d5c49c7e379c46e0f71c6c66ffec71c49f941571c21e1c0dde32",
+    "bytes": 2007
+  },
+  "artifact": {
+    "sha256": "aeb60ea2dda9825ecca75c8b1517a4d68f6534f4c5513d47fcde9de898b03d4d",
+    "bytes": 843180
+  }
+}

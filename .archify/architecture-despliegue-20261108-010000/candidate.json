@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Arquitectura de despliegue de VetHuellitas",
+    "subtitle": "Flujo público desde Swagger hasta SQL Server en MonsterASP.NET",
+    "locale": "es",
+    "output": ".archify/architecture-despliegue-20261108-010000/arquitectura-despliegue.html",
+    "quality_profile": "showcase",
+    "views": [
+      { "id": "consulta", "label": "Consulta pública", "focus": ["cliente", "hosting", "api", "base_datos"], "note": "Una solicitud HTTP llega al hosting, se procesa en la API y consulta SQL Server." },
+      { "id": "documentacion", "label": "Swagger", "focus": ["cliente", "swagger", "api"], "note": "Swagger obtiene el documento OpenAPI y permite ejecutar pruebas contra la API publicada." }
+    ]
+  },
+  "components": [
+    { "id": "cliente", "type": "external", "label": "Usuario", "sublabel": "navegador web", "pos": [40, 250], "size": [140, 64] },
+    { "id": "hosting", "type": "cloud", "label": "MonsterASP.NET", "sublabel": "hosting público de la API", "pos": [250, 250], "size": [160, 64] },
+    { "id": "swagger", "type": "frontend", "label": "Swagger UI", "sublabel": "/swagger y OpenAPI", "pos": [480, 110], "size": [150, 64] },
+    { "id": "api", "type": "backend", "label": "API ASP.NET Core", "sublabel": "controladores y /health", "pos": [480, 330], "size": [170, 64] },
+    { "id": "base_datos", "type": "database", "label": "SQL Server", "sublabel": "Duenios y Mascotas", "pos": [760, 330], "size": [155, 64] }
+  ],
+  "boundaries": [{ "kind": "region", "label": "Despliegue en MonsterASP.NET", "wraps": ["hosting", "swagger", "api", "base_datos"], "pad": 22 }],
+  "connections": [
+    { "from": "cliente", "to": "hosting", "label": "HTTP", "variant": "emphasis" },
+    { "from": "hosting", "to": "swagger", "label": "/swagger", "variant": "emphasis" },
+    { "from": "swagger", "to": "api", "label": "OpenAPI y pruebas" },
+    { "from": "hosting", "to": "api", "label": "solicitud REST", "variant": "emphasis" },
+    { "from": "api", "to": "base_datos", "label": "EF Core / SQL Server", "variant": "security" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Configuración", "items": ["La cadena de conexión se obtiene desde la configuración, no desde el repositorio.", "Swagger y OpenAPI se publican junto con la API."] },
+    { "dot": "emerald", "title": "Persistencia", "items": ["EF Core usa el proveedor de SQL Server.", "La ruta /health confirma que la aplicación puede conectarse a la base de datos."] }
+  ]
+}
